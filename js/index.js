@@ -37,10 +37,10 @@ fun_img.addEventListener('dblclick', event => {
 
 inv_holder = document.querySelector('.inverse-content');
 inverse_image = document.querySelector('.inverse-content img');
-
+let newContent = document.createElement("h2");
 inverse_image.addEventListener('load', event => {
  inverse_image.style.display = 'none';
- let newContent = document.createElement("h2");
+ 
  newContent.textContent = "You are not worthy to view img"
  newContent.style.textAlign= "center"
  inv_holder.appendChild(newContent);
@@ -49,6 +49,7 @@ inverse_image.addEventListener('load', event => {
 
 inc = 0;
 function wheelPos(event) {
+
  if (event.deltaY < 0) {
  inc += 10;
  console.log(parseInt(inc));
@@ -61,3 +62,7 @@ function wheelPos(event) {
  }
 };
 home.onwheel = wheelPos;
+
+window.addEventListener('scroll', event => {
+ newContent.textContent = "HEY, YOU SCROLLED!...don't do that.";
+});
