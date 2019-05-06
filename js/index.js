@@ -68,7 +68,7 @@ window.addEventListener('scroll', event => {
  newContent.textContent = "HEY, YOU SCROLLED!...don't do that.";
 });
 
-const text = document.createElement('textarea');
+let text = document.createElement('textarea');
 text.textContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation';
 text.style.width = '100%';
 text.style.height = '80px';
@@ -80,7 +80,7 @@ function select(event) {
 };
 text.addEventListener('select', select);
 
-const mid = document.querySelector('.content-section');
+let mid = document.querySelector('.content-section');
 
 document.addEventListener('keydown', event =>{
  if(event.code == 'ArrowLeft'){
@@ -91,4 +91,12 @@ document.addEventListener('keydown', event =>{
   if(event.code == 'ArrowLeft'){
    mid.style.color = '';
   }
-  });
+});
+let nav = document.querySelectorAll('.nav-link');
+nav.forEach(element => {
+ element.addEventListener('click', event => event.preventDefault());
+});
+
+button.addEventListener('click', event => {
+ button.innerHTML = `Click count: ${event.detail}`;
+});
