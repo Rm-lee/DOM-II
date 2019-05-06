@@ -96,7 +96,14 @@ let nav = document.querySelectorAll('.nav-link');
 nav.forEach(element => {
  element.addEventListener('click', event => event.preventDefault());
 });
+let midDv = document.querySelector('.content-section .text-content');
+let midp = document.querySelector('.content-section .text-content p');
+midDv.addEventListener('click', event => {
+ midDv.textContent = 'I have been clicked';
 
-button.addEventListener('click', event => {
- button.innerHTML = `Click count: ${event.detail}`;
+});
+midp.addEventListener('click', event => {
+ event.stopPropagation();
+ midp.textContent = 'I (p) have been clicked';
+ 
 });
